@@ -24,3 +24,12 @@ samples, guidance on mobile development, and a full API reference.
 4-En main usar snippets importm + tab, mateapp + tab
 5-crear carpeta src - pages.
 6-crear archivo home_page.dart, para desde main.dart pasarle las routes
+
+#2
+Crear un swiper de tarjetas
+En el body de home_page, hago referencia a una nueva funcion
+el cual regresara un widget
+
+Documentacion para crear carrousel en stack
+https://pub.dev/packages/flutter_swiper#-readme-tab-
+sigo los pasos para generarlo
