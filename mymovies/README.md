@@ -44,3 +44,7 @@ Creo el modelo para Movie
 #5
 Movie Provider, importo http de Dart https://pub.dev/packages/http#-installing-tab- en pubspec.yaml. Es como el services de Angular
 Uri, es una herramienta de Dart que facilita la creacion de los path
+
+#6 
+Mostrando poster en Swiper.
+Desde el CardSwiper llamo un metodo en el Movie model
