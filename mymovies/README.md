@@ -51,3 +51,6 @@ Desde el CardSwiper llamo un metodo en el Movie model
 
 #7 
 Comenzando a desarrollar Infinite Scroll horaizontal
+
+#8
+PageView es una coleccion por la que recibe un children, que es una lista de widget
