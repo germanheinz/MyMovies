@@ -48,3 +48,6 @@ Uri, es una herramienta de Dart que facilita la creacion de los path
 #6 
 Mostrando poster en Swiper.
 Desde el CardSwiper llamo un metodo en el Movie model
+
+#7 
+Comenzando a desarrollar Infinite Scroll horaizontal
