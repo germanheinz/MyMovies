@@ -40,3 +40,7 @@ Corto todo el codigo del home y pego en card_swiper_widget
 
 #4 Movie Model
 Creo el modelo para Movie
+
+#5
+Movie Provider, importo http de Dart https://pub.dev/packages/http#-installing-tab- en pubspec.yaml. Es como el services de Angular
+Uri, es una herramienta de Dart que facilita la creacion de los path
