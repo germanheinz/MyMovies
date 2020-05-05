@@ -37,3 +37,6 @@ sigo los pasos para generarlo
 #3 Creo una nueva carpeta con el arvhivo card_swiper_widget
 para luego poder usarla sin repetir codigo
 Corto todo el codigo del home y pego en card_swiper_widget
+
+#4 Movie Model
+Creo el modelo para Movie
