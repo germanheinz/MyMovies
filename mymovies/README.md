@@ -92,3 +92,9 @@ void dispose(){
 }
 
 En flutter el widget es StreamBuilder
+
+#11
+Optimizamos la app. 
+primero: Agrego una bandera de true o false para emitir cargar page, y pregunto con condicional si quiero seguir cargando o no
+segundo: cambiamos el pageView por PageView.builder. Esto es para que vaya cargando 
+a medida que vaya necesitando

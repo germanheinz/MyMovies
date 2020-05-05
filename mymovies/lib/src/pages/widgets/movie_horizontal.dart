@@ -4,24 +4,36 @@ import 'package:mymovies/src/models/movie.dart';
 class MovieHorizontal extends StatelessWidget {
 
   final List<Movie> movies;
+  final Function nextPage;
 
-  MovieHorizontal({@required this.movies});
+  MovieHorizontal({@required this.movies, @required this.nextPage});
+  final _pageController = new PageController(initialPage: 1, viewportFraction: 0.29);
+  
 
   @override
   Widget build(BuildContext context) {
     final _screenSize = MediaQuery.of(context).size;
+    _pageController.addListener(() {
+        if(_pageController.position.pixels >= _pageController.position.maxScrollExtent - 200){
+          print('load next page');
+          nextPage();
+        }
+    });
     return Container(
       height: _screenSize.height * 0.2,
-      child: PageView(
+      child: PageView.builder(
         pageSnapping: false,
-        controller: PageController(initialPage: 1, viewportFraction: 0.29),
-        children: _cards(context),
+        controller: _pageController,
+        itemCount: movies.length,
+        itemBuilder: (context, i){
+          return _card(context, movies[i]);
+        },
+        // children: _cards(context),
         ), 
     );
   }
-  List<Widget> _cards(BuildContext context){
-    return movies.map((movies) {
-      return Container(
+  Widget _card(BuildContext context, Movie movies){
+    return Container(
         margin: EdgeInsets.only(right: 15.0),
         child: Column(
           children: <Widget>[
@@ -42,6 +54,5 @@ class MovieHorizontal extends StatelessWidget {
           ],
         ),
       );
-    }).toList();
   }
 }

@@ -8,6 +8,7 @@ class MoviesProvider{
     String _apiKey = '81f888823f079b9941a4534f90d59f34';
     String _url = 'api.themoviedb.org';
     String _language = 'es-Es';
+    bool _loading = false;
 
     int _popularPage = 0;
 
@@ -37,7 +38,10 @@ class MoviesProvider{
       // print(movies.items[0].title);
       return movies.items;
     }
+    
     Future<List<Movie>> getPopulars() async{
+      if(_loading) return [];
+      _loading = true;
       _popularPage++;
       final url = Uri.https(_url, '/3/movie/popular', {
         'api_key' : _apiKey,
@@ -53,6 +57,7 @@ class MoviesProvider{
 
       _populars.addAll(movies.items);
       popularsSink(_populars);
+      _loading=false;
       return movies.items;
     }
 }
