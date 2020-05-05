@@ -54,3 +54,41 @@ Comenzando a desarrollar Infinite Scroll horaizontal
 
 #8
 PageView es una coleccion por la que recibe un children, que es una lista de widget
+
+#9
+Posible problema con los futures. Al crear el widget horizontal, cuando llegue al final, seria conveniente volver a cargar mas peliculas, disparar nuevamente la funcion.
+Pero como queremos el componente para scroll horizontal se pueda volver a usar en nuestro codigo y no volver a escribir, lo definimos en un statelesswidget.
+el home_page el cual tiene relacion con el statelesswidget, va a hacer referencia a la clase stateless.
+Como solo se puede llamar al future una vez, es tiempo de utilizar stream
+
+#10
+Stream Controller.
+Seria nuestra tuberia, en donde hay data de entrada y de salida. 
+stream transformer, tuberia que cambia lo que entra.
+sink: agregar informacion al stream
+stream: cuando queramos escuchar lo que emite la tuberia deberiamos usar stream
+
+Patron Bloc
+Una forma para manejar el estado de la data de mi aplicacion.
+Centraliza informacion.
+Un bloc trabaja en base a stream.
+3 puntos importantes
+-Trabaja unicamente entradas y salidas.
+-Para introducir info usaremos el sinj y para la salida usaremos stream
+-Es importante cerrar el stream cuando ya no lo necesitemos
+
+La idea es que los widget se encargen de dibujar y no de contrar el estado de la informacion.
+
+ej.
+class mi bloc{
+    StreamController<String> _streamController = new StreamController<String>();
+    Sink<String> get inputSink => streamController.sink;
+    Stream<String> get outputStream => streamController.stream;
+}
+para cerrar el stream
+class..
+void dispose(){
+    _streamController?.close();
+}
+
+En flutter el widget es StreamBuilder
