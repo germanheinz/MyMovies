@@ -98,3 +98,18 @@ Optimizamos la app.
 primero: Agrego una bandera de true o false para emitir cargar page, y pregunto con condicional si quiero seguir cargando o no
 segundo: cambiamos el pageView por PageView.builder. Esto es para que vaya cargando 
 a medida que vaya necesitando
+
+#12
+Como saber cuando se clickea en una pelcula?
+usando GestureDetector
+
+en movie_horizontal regreso
+
+ return GestureDetector(
+    child: card, 
+    onTap: (){
+        print(movies.title);
+        Navigator.pushNamed(context, 'detail', arguments: movies); 
+    }
+);
+le paso el nombre de la pagina a donde quiero ir y en argumento el objeto seleccionado
