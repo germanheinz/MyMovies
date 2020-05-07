@@ -37,12 +37,15 @@ class MovieHorizontal extends StatelessWidget {
         margin: EdgeInsets.only(right: 15.0),
         child: Column(
           children: <Widget>[
-            ClipRRect(
-              borderRadius: BorderRadius.circular(10.0),
-              child: FadeInImage(placeholder: AssetImage('assets/img/no-image.jpg'),
-              image: NetworkImage(movies.getPosterImg()),
-              fit: BoxFit.cover,
-              height: 100.0,
+            Hero(
+                tag: movies.id,
+                child: ClipRRect(
+                borderRadius: BorderRadius.circular(10.0),
+                child: FadeInImage(placeholder: AssetImage('assets/img/no-image.jpg'),
+                image: NetworkImage(movies.getPosterImg()),
+                fit: BoxFit.cover,
+                height: 100.0,
+                ),
               ),
             ),
             SizedBox(height: 1.5),

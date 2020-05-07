@@ -62,11 +62,14 @@ class MovieDetail extends StatelessWidget {
         children: <Widget>[
           //Para generar bordes redondeados en image cntr + . y elegi wrap widget
           //y defini borderRadius
-        ClipRRect(
-            borderRadius: BorderRadius.circular(15.0),
-            child: Image(
-            image: NetworkImage(movie.getPosterImg()),
-            height: 150.0,
+        Hero(
+              tag: movie.id,
+              child: ClipRRect(
+              borderRadius: BorderRadius.circular(15.0),
+              child: Image(
+              image: NetworkImage(movie.getPosterImg()),
+              height: 150.0,
+            ),
           ),
         ),
         SizedBox(width: 20.0),
@@ -128,6 +131,7 @@ class MovieDetail extends StatelessWidget {
     );
 
   }
+  
   Widget _actorCard(Actor actor){
     return Container(
       child: Column(
