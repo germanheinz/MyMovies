@@ -63,7 +63,7 @@ class MovieDetail extends StatelessWidget {
           //Para generar bordes redondeados en image cntr + . y elegi wrap widget
           //y defini borderRadius
         Hero(
-              tag: movie.id,
+              tag: movie.uniqueId,
               child: ClipRRect(
               borderRadius: BorderRadius.circular(15.0),
               child: Image(
