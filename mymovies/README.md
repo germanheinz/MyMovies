@@ -146,3 +146,7 @@ Muy simple aplicar el efecto, solo envolver el objeto que se quiera generar el e
 #15
 Implementando Search in home_page
 creamos una nueva carpeta y clase y extendemos la funcionalidad
+
+#16
+Terminando Search
+implementamos el servicio para buscar peliculas en providers y lo usamos en searchdelegate

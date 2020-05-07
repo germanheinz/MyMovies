@@ -73,4 +73,17 @@ class MoviesProvider{
         return cast.actors;
     }
 
+    Future<List<Movie>> searchMovie(String query) async{
+      final url = Uri.https(_url, '/3/search/movie', {
+        'api_key' : _apiKey,
+        'language': _language,
+        'query'   : query
+      });
+      final response = await http.get(url);
+      final decodedData = json.decode(response.body);
+
+      final movies = new Movies.fromJsonList(decodedData['results']);
+      // print(movies.items[0].title);
+      return movies.items;
+    }
 }
