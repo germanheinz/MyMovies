@@ -142,3 +142,7 @@ lo que no quiero que desaparezca se lo define como
 #14
 Hero Animations
 Muy simple aplicar el efecto, solo envolver el objeto que se quiera generar el efecto, en un widget del tipo Hero, y pasarle el mismo tag
+
+#15
+Implementando Search in home_page
+creamos una nueva carpeta y clase y extendemos la funcionalidad
