@@ -1,9 +1,11 @@
+
 import 'package:flutter/material.dart';
+import 'package:mymovies/src/models/cast.dart';
 import 'package:mymovies/src/models/movie.dart';
+import 'package:mymovies/src/providers/movie_provider.dart';
 
 class MovieDetail extends StatelessWidget {
 
- 
   @override
   Widget build(BuildContext context) {
     final Movie movie = ModalRoute.of(context).settings.arguments;
@@ -21,7 +23,8 @@ class MovieDetail extends StatelessWidget {
                 _description(movie),
                 _description(movie),
                 _description(movie),
-              ]
+                _cast(movie),
+              ],
             ),
           )
         ],
@@ -92,4 +95,60 @@ class MovieDetail extends StatelessWidget {
       ),
     );
   }
+
+  Widget _cast(Movie movie){
+
+  final movieProvider = new MoviesProvider();
+  return FutureBuilder(
+    future: movieProvider.getCast(movie.id.toString()),
+    builder: (context, AsyncSnapshot<List> snapshot){
+      if(snapshot.hasData){
+        return _createActorsPageView(snapshot.data);
+      }else{
+        return Center(child: CircularProgressIndicator());
+      }
+    },
+    );
+
+  }
+  
+  Widget _createActorsPageView(List<Actor> actors){
+
+    return SizedBox(
+      height: 200.0,
+      child: PageView.builder(
+        pageSnapping: false,
+        controller: PageController(
+          viewportFraction: 0.3,
+          initialPage: 1
+        ),
+        itemCount: actors.length,
+        itemBuilder: (context, i) => _actorCard(actors[i]),
+      ),
+    );
+
+  }
+  Widget _actorCard(Actor actor){
+    return Container(
+      child: Column(
+        children: <Widget>[
+          ClipRRect(
+              borderRadius: BorderRadius.circular(10.0),
+              child: FadeInImage(
+              placeholder: AssetImage('assets/img/no-image.jpg'),
+              height: 150.0,
+              fit: BoxFit.cover,
+              image: NetworkImage(actor.getCastPhoto()),
+              ),
+          ),
+          Text(
+            actor.name,
+            overflow: TextOverflow.ellipsis,
+            )
+        ],
+      ),
+    );
+
+  }
+
 }
