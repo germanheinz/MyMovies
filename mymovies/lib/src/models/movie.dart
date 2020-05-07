@@ -69,6 +69,13 @@ class Movie {
       return 'https://image.tmdb.org/t/p/w500/$posterPath';
     }
   }
+   getBackgroundImg(){
+    if(posterPath == null){
+      return 'https://blog.stylingandroid.com/wp-content/themes/lontano-pro/images/no-image-slide.png';
+    }else{
+      return 'https://image.tmdb.org/t/p/w500/$backdropPath';
+    }
+  }
 }
 class Dates {
   String maximum;

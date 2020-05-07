@@ -113,3 +113,28 @@ en movie_horizontal regreso
     }
 );
 le paso el nombre de la pagina a donde quiero ir y en argumento el objeto seleccionado
+
+
+
+#13
+Diseño de la pagina de detalles
+se debe usar CustomScrollView para generar el efecto deseado
+y la estructura de un CustomScrollView es 
+ body: CustomScrollView(
+        slivers: <Widget>[
+          _createAppbar(movie),
+
+lo que no quiero que desaparezca se lo define como
+ SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                SizedBox(height: 10.0),
+                _posterTitle(movie, context),
+                _description(movie),
+                _description(movie),
+                _description(movie),
+                _description(movie),
+                _description(movie),
+              ]
+            ),
+          )
